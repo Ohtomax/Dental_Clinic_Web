@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Clinic | Smile Check</title>
+    <link rel="stylesheet" href="/cssFiles/indexCss.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="/jsFiles/indexJs.js" defer></script>
+</head>
+<body class="bg-gray-50">
+
+    <header class="py-[20px] px-[10px] bg-white shadow-lg font-bold">
+        <div class="flex flex-row justify-between items-center max-w-7xl mx-auto">
+            
+            <div class="flex flex-row items-center gap-[10px]">
+                <svg width="30px" height="30px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" class="si-glyph si-glyph-teeth" fill="#434343">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <path d="M14.715,9.02 C14.715,12.045 14.151,15.887 12.434,15.887 C9.62,15.887 10.916,10.001 8.491,10.001 C6.066,10.001 6.886,15.918 4.569,15.918 C2.94,15.918 2.292,12.002 2.292,9.02 C2.292,7.213 -0.101,4.249 1.672,1.628 C3.846,-1.586 5.94,0.952 8.437,0.952 C10.972,0.952 12.949,-1.533 15.265,1.628 C17.101,4.137 14.715,7.244 14.715,9.02 L14.715,9.02 Z" fill="currentColor"></path>
+                    </g>
+                </svg>
+                <h1 class="text-xl">Smile Check</h1>
+            </div>
+
+            <div class="flex flex-row items-center gap-[15px]">
+                
+                <div class="hidden md:flex gap-[20px] text-gray-600">
+                    <a href="#" class="hover:text-blue-600">Home</a>
+                    <a href="#" class="hover:text-blue-600">Services</a>
+                    <a href="#" class="hover:text-blue-600">Contact</a>
+                    <a href="#" class="whitespace-nowrap hover:text-blue-600">Book Appointment</a>
+                </div>
+
+                <div class="relative md:hidden">
+                    <button id="menuBtn" class="flex items-center p-1 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none">
+                        <svg fill="#000000" width="34px" height="34px" viewBox="0 0 100 100">
+                            <path d="M78,36H38c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2H78c1.1,0,2,0.9,2,2v4C80,35.1,79.1,36,78,36z"></path>
+                            <path d="M78,54H38c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2H78c1.1,0,2,0.9,2,2v4C80,53.1,79.1,54,78,54z"></path>
+                            <path d="M26,54h-4c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2h4c1.1,0,2,0.9,2,2v4C28,53.1,27.1,54,26,54z"></path>
+                            <path d="M26,36h-4c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2h4c1.1,0,2,0.9,2,2v4C28,35.1,27.1,36,26,36z"></path>
+                            <path d="M26,72h-4c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2h4c1.1,0,2,0.9,2,2v4C28,71.1,27.1,72,26,72z"></path>
+                            <path d="M78,72H38c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2H78c1.1,0,2,0.9,2,2v4C80,71.1,79.1,72,78,72z"></path>
+                        </svg>
+                    </button>
+
+                    <div id="dropdownMenu" class="hidden absolute right-0 mt-3 w-48 bg-white border border-gray-200 rounded-lg shadow-xl z-50">
+                        <div class="py-2">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Home</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Services</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Contact</a>
+                            <hr class="my-1 border-gray-100">
+                            <a href="#" class="block px-4 py-2 text-blue-600 hover:bg-blue-50">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="focus:outline-none">
+                    <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4" d="M12 22.01C17.5228 22.01 22 17.5329 22 12.01C22 6.48716 17.5228 2.01001 12 2.01001C6.47715 2.01001 2 6.48716 2 12.01C2 17.5329 6.47715 22.01 12 22.01Z" fill="#292D32"></path>
+                        <path d="M12 6.93994C9.93 6.93994 8.25 8.61994 8.25 10.6899C8.25 12.7199 9.84 14.3699 11.95 14.4299C11.98 14.4299 12.02 14.4299 12.04 14.4299C12.06 14.4299 12.09 14.4299 12.11 14.4299C12.12 14.4299 12.13 14.4299 12.13 14.4299C14.15 14.3599 15.74 12.7199 15.75 10.6899C15.75 8.61994 14.07 6.93994 12 6.93994Z" fill="#292D32"></path>
+                        <path d="M18.7807 19.36C17.0007 21 14.6207 22.01 12.0007 22.01C9.3807 22.01 7.0007 21 5.2207 19.36C5.4607 18.45 6.1107 17.62 7.0607 16.98C9.7907 15.16 14.2307 15.16 16.9407 16.98C17.9007 17.62 18.5407 18.45 18.7807 19.36Z" fill="#292D32"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+</body>
+</html>
