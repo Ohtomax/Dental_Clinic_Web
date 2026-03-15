@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="/cssFiles/indexCss.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="/jsFiles/indexJs.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="bg-gray-50">
+<body class="bg-[#D0D0D0]">
 
     <header class="py-[20px] px-[10px] bg-white shadow-lg font-bold">
         <div class="flex flex-row justify-between items-center max-w-7xl mx-auto">
             
             <div class="flex flex-row items-center gap-[10px]">
-                <svg width="30px" height="30px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" class="si-glyph si-glyph-teeth" fill="#434343">
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <path d="M14.715,9.02 C14.715,12.045 14.151,15.887 12.434,15.887 C9.62,15.887 10.916,10.001 8.491,10.001 C6.066,10.001 6.886,15.918 4.569,15.918 C2.94,15.918 2.292,12.002 2.292,9.02 C2.292,7.213 -0.101,4.249 1.672,1.628 C3.846,-1.586 5.94,0.952 8.437,0.952 C10.972,0.952 12.949,-1.533 15.265,1.628 C17.101,4.137 14.715,7.244 14.715,9.02 L14.715,9.02 Z" fill="currentColor"></path>
-                    </g>
-                </svg>
+                <div class="avatar">
+                <div class="w-[40px] rounded-xl">
+                    <img src="https://img.daisyui.com/images/profile/demo/yellingwoman@192.webp" />
+                </div>
+                </div>
                 <h1 class="text-xl">Smile Check</h1>
             </div>
 
@@ -32,16 +35,17 @@
                 </div>
 
                 <div class="relative md:hidden">
-                    <button id="menuBtn" class="flex items-center p-1 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none">
-                        <svg fill="#000000" width="34px" height="34px" viewBox="0 0 100 100">
-                            <path d="M78,36H38c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2H78c1.1,0,2,0.9,2,2v4C80,35.1,79.1,36,78,36z"></path>
-                            <path d="M78,54H38c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2H78c1.1,0,2,0.9,2,2v4C80,53.1,79.1,54,78,54z"></path>
-                            <path d="M26,54h-4c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2h4c1.1,0,2,0.9,2,2v4C28,53.1,27.1,54,26,54z"></path>
-                            <path d="M26,36h-4c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2h4c1.1,0,2,0.9,2,2v4C28,35.1,27.1,36,26,36z"></path>
-                            <path d="M26,72h-4c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2h4c1.1,0,2,0.9,2,2v4C28,71.1,27.1,72,26,72z"></path>
-                            <path d="M78,72H38c-1.1,0-2-0.9-2-2v-4c0-1.1,0.9-2,2-2H78c1.1,0,2,0.9,2,2v4C80,71.1,79.1,72,78,72z"></path>
+                    <label id="menuBtn" class="btn btn-ghost btn-circle swap swap-rotate grid place-items-center flex items-center p-1 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none">
+                        <input type="checkbox" id="menuCheckbox" />
+
+                        <svg class="swap-off fill-current w-[30]" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                            <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
                         </svg>
-                    </button>
+
+                        <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                            <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                        </svg>
+                    </label>
 
                     <div id="dropdownMenu" class="hidden absolute right-0 mt-3 w-48 bg-white border border-gray-200 rounded-lg shadow-xl z-50">
                         <div class="py-2">
@@ -55,15 +59,74 @@
                 </div>
                 
                 <button class="focus:outline-none">
-                    <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.4" d="M12 22.01C17.5228 22.01 22 17.5329 22 12.01C22 6.48716 17.5228 2.01001 12 2.01001C6.47715 2.01001 2 6.48716 2 12.01C2 17.5329 6.47715 22.01 12 22.01Z" fill="#292D32"></path>
-                        <path d="M12 6.93994C9.93 6.93994 8.25 8.61994 8.25 10.6899C8.25 12.7199 9.84 14.3699 11.95 14.4299C11.98 14.4299 12.02 14.4299 12.04 14.4299C12.06 14.4299 12.09 14.4299 12.11 14.4299C12.12 14.4299 12.13 14.4299 12.13 14.4299C14.15 14.3599 15.74 12.7199 15.75 10.6899C15.75 8.61994 14.07 6.93994 12 6.93994Z" fill="#292D32"></path>
-                        <path d="M18.7807 19.36C17.0007 21 14.6207 22.01 12.0007 22.01C9.3807 22.01 7.0007 21 5.2207 19.36C5.4607 18.45 6.1107 17.62 7.0607 16.98C9.7907 15.16 14.2307 15.16 16.9407 16.98C17.9007 17.62 18.5407 18.45 18.7807 19.36Z" fill="#292D32"></path>
-                    </svg>
+                    <div class="avatar">
+                    <div class="w-[35px] rounded-full">
+                        <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+                    </div>
+                    </div>
                 </button>
             </div>
         </div>
     </header>
 
+    <section>
+        <div class="flex flex-col mx-[50px] my-[50px] gap-[20px] bg-white p-[20px] rounded-[30px]">
+            <div class="flex flex-col gap-[10px]">
+                <H1 class="text-[34px]  font-extrabold text-slate-900 tracking-tight">Smile Check!</H1>
+                <h2 class="text-[16px] md:text-lg text-slate-600 leading-relaxed">Experience a brighter, more confident smile with our personalized dental care and state-of-the-art technology. From routine check-ups to advanced cosmetic treatments, we are dedicated to keeping your teeth healthy and your smile radiant.</h2>
+                <button class="btn w-full bg-gray-300 rounded-[10px]"> 
+                    <span><svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 21H6.2C5.0799 21 4.51984 21 4.09202 20.782C3.71569 20.5903 3.40973 20.2843 3.21799 19.908C3 19.4802 3 18.9201 3 17.8V8.2C3 7.0799 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H17.8C18.9201 5 19.4802 5 19.908 5.21799C20.2843 5.40973 20.5903 5.71569 20.782 6.09202C21 6.51984 21 7.0799 21 8.2V10M7 3V5M17 3V5M3 9H21M13.5 13.0001L7 13M10 17.0001L7 17M14 21L16.025 20.595C16.2015 20.5597 16.2898 20.542 16.3721 20.5097C16.4452 20.4811 16.5147 20.4439 16.579 20.399C16.6516 20.3484 16.7152 20.2848 16.8426 20.1574L21 16C21.5523 15.4477 21.5523 14.5523 21 14C20.4477 13.4477 19.5523 13.4477 19 14L14.8426 18.1574C14.7152 18.2848 14.6516 18.3484 14.601 18.421C14.5561 18.4853 14.5189 18.5548 14.4903 18.6279C14.458 18.7102 14.4403 18.7985 14.405 18.975L14 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span>
+                        Book an appointment now!
+                </button>
+            </div>
+
+            <div class="flex flex-col">
+             <div class="carousel w-full h-[450px]">
+                    <div id="slide1" class="carousel-item relative w-full">
+                        <img
+                        src="https://smilecenterdentalclinic.com/wp-content/uploads/2025/02/image-1.png"
+                        class="w-full" />
+                        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide4" class="btn btn-circle">❮</a>
+                        <a href="#slide2" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide2" class="carousel-item relative w-full">
+                        <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFHg4fV-5Tn4zr8Bw9XxVGJMU3LSNGWHhIUQ&s"
+                        class="w-full" />
+                        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide1" class="btn btn-circle">❮</a>
+                        <a href="#slide3" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide3" class="carousel-item relative w-full">
+                        <img
+                        src="https://www.smilemore.ph/wp-content/uploads/2021/03/Ralph-Dr.-R.L..jpg"
+                        class="w-full" />
+                        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide2" class="btn btn-circle">❮</a>
+                        <a href="#slide4" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide4" class="carousel-item relative w-full">
+                        <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfpcCyWdIf5nppFiBCIhYw1fi2UdsJCaOeuQ&s"
+                        class="w-full" />
+                        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide3" class="btn btn-circle">❮</a>
+                        <a href="#slide1" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="avatar avatar-online fixed z-50 bottom-4 bottom-10 right-4">
+        <div class="w-[60px] rounded-full">
+            <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" />
+        </div>
+    </div>
 </body>
 </html>

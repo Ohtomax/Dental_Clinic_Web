@@ -1,11 +1,20 @@
-const btn = document.getElementById('menuBtn');
-const menu = document.getElementById('dropdownMenu');
+const menuCheckbox = document.getElementById('menuCheckbox');
+const dropdownMenu = document.getElementById('dropdownMenu');
 
-btn.addEventListener('click', (event) => {
-    event.stopPropagation();
-    menu.classList.toggle('hidden');
+menuCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+        // Show the menu
+        dropdownMenu.classList.remove('hidden');
+    } else {
+        // Hide the menu
+        dropdownMenu.classList.add('hidden');
+    }
 });
 
-window.addEventListener('click', () => {
-    menu.classList.add('hidden');
+// Optional: Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!menuCheckbox.parentElement.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        menuCheckbox.checked = false; // Reset the icon
+        dropdownMenu.classList.add('hidden'); // Hide the menu
+    }
 });
