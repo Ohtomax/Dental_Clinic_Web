@@ -10,50 +10,48 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
-<body class="bg-[#D0D0D0]">
-
-    <header class="py-[20px] px-[10px] bg-white shadow-lg font-bold">
+<body class="">
+    <header class="bg-white/30 backdrop-blur-md border border-white/20 p-8 fixed top-[20px] left-0 right-0 z-50 bg-[#FFFDF6] mx-[20px] py-[10px] px-[10px] rounded-[15px] shadow-lg font-bold mb-[20px] backdrop-blur-md shadow-lg">
         <div class="flex flex-row justify-between items-center max-w-7xl mx-auto">
-            
             <div class="flex flex-row items-center gap-[10px]">
-                <div class="avatar">
-                <div class="w-[40px] rounded-xl">
-                    <img src="https://img.daisyui.com/images/profile/demo/yellingwoman@192.webp" />
+                <div class="w-[70px] md:w-[120px] lg:w-[150px]">
+                    <img src="/imagesFiles/Logo.png" />
                 </div>
-                </div>
-                <h1 class="text-xl">Smile Check</h1>
             </div>
 
             <div class="flex flex-row items-center gap-[15px]">
-                
                 <div class="hidden md:flex gap-[20px] text-gray-600">
-                    <a href="#" class="hover:text-blue-600">Home</a>
-                    <a href="#" class="hover:text-blue-600">Services</a>
-                    <a href="#" class="hover:text-blue-600">Contact</a>
-                    <a href="#" class="whitespace-nowrap hover:text-blue-600">Book Appointment</a>
+                    <a href="#" class="hover:text-[#99B368]">Home</a>
+                    <a href="#" class="hover:text-[#99B368]">Services</a>
+                    <a href="#" class="hover:text-[#99B368]">Contact</a>
                 </div>
-
+                <div class="hidden md:flex">
+                    <button class="btn btn-wide bg-[#99B368] border-none text-white rounded-[50px] hover:text-[#99B368] hover:bg-[white] hover:border-[#99B368]">Book an appointment</button>
+                </div>
+                
                 <div class="relative md:hidden">
                     <label id="menuBtn" class="btn btn-ghost btn-circle swap swap-rotate grid place-items-center flex items-center p-1 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none">
                         <input type="checkbox" id="menuCheckbox" />
 
-                        <svg class="swap-off fill-current w-[30]" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                        
+                        <svg fill="#99B368" class="swap-off  w-[30]" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512" class>
                             <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
                         </svg>
 
-                        <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                        <svg fill="#99B368" class="swap-on " xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
                             <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
                         </svg>
                     </label>
 
-                    <div id="dropdownMenu" class="hidden absolute right-0 mt-3 w-48 bg-white border border-gray-200 rounded-lg shadow-xl z-50">
+                    <div id="dropdownMenu" class="hidden absolute right-0 mt-3 w-[250px] bg-white border border-gray-200 rounded-lg shadow-xl z-50">
                         <div class="py-2">
-                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Home</a>
-                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Services</a>
-                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Contact</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:text-[#99B368]">Home</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:text-[#99B368]">Services</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:text-[#99B368]">Contact</a>
+                            <a href="#" class="whitespace-nowrap mx-4 my-2 bg-[#99B368] block px-4 py-2 text-white rounded-[10px]">Book an appointment!</a>
                             <hr class="my-1 border-gray-100">
-                            <a href="#" class="block px-4 py-2 text-blue-600 hover:bg-blue-50">Book Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +59,7 @@
                 <button class="focus:outline-none">
                     <div class="avatar">
                     <div class="w-[35px] rounded-full">
-                        <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+                        <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/631143758_1992330935048580_3398837793962298581_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE48XJoylJN6I4Ojd_z08zjfO_2TJbDMTR87_ZMlsMxNF2knDRRpCAxPf0QZpVX8O5z_699FcYXpjPGWDFQQOl3&_nc_ohc=O-9JrY5te7EQ7kNvwG4go3b&_nc_oc=AdksP3IbewNuVgUlJA4DbrHzDvxtXTjidexA0dix2R1UDknMeMfFXfl8hcBFga-XXeE&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=D1WwUoP4i06Syf4LIQlBYQ&_nc_ss=8&oh=00_AfxA6REHQLU4Uvr1-nfyF8ER4nBhSPk61CnTTfR5fbnVAg&oe=69BD67CC" />
                     </div>
                     </div>
                 </button>
@@ -69,64 +67,74 @@
         </div>
     </header>
 
-    <section>
-        <div class="flex flex-col mx-[50px] my-[50px] gap-[20px] bg-white p-[20px] rounded-[30px]">
-            <div class="flex flex-col gap-[10px]">
-                <H1 class="text-[34px]  font-extrabold text-slate-900 tracking-tight">Smile Check!</H1>
-                <h2 class="text-[16px] md:text-lg text-slate-600 leading-relaxed">Experience a brighter, more confident smile with our personalized dental care and state-of-the-art technology. From routine check-ups to advanced cosmetic treatments, we are dedicated to keeping your teeth healthy and your smile radiant.</h2>
-                <button class="btn w-full bg-gray-300 rounded-[10px]"> 
-                    <span><svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 21H6.2C5.0799 21 4.51984 21 4.09202 20.782C3.71569 20.5903 3.40973 20.2843 3.21799 19.908C3 19.4802 3 18.9201 3 17.8V8.2C3 7.0799 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H17.8C18.9201 5 19.4802 5 19.908 5.21799C20.2843 5.40973 20.5903 5.71569 20.782 6.09202C21 6.51984 21 7.0799 21 8.2V10M7 3V5M17 3V5M3 9H21M13.5 13.0001L7 13M10 17.0001L7 17M14 21L16.025 20.595C16.2015 20.5597 16.2898 20.542 16.3721 20.5097C16.4452 20.4811 16.5147 20.4439 16.579 20.399C16.6516 20.3484 16.7152 20.2848 16.8426 20.1574L21 16C21.5523 15.4477 21.5523 14.5523 21 14C20.4477 13.4477 19.5523 13.4477 19 14L14.8426 18.1574C14.7152 18.2848 14.6516 18.3484 14.601 18.421C14.5561 18.4853 14.5189 18.5548 14.4903 18.6279C14.458 18.7102 14.4403 18.7985 14.405 18.975L14 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span>
-                        Book an appointment now!
-                </button>
-            </div>
+<section class="bg-[url('/imagesFiles/Background1.png')] bg-cover bg-center min-h-screen flex items-center pt-[40px] md:pt-[0px]">
+    
+    <div class="container mx-auto px-6 py-16 lg:px-12 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+        
+        <div class="flex-1 flex flex-col gap-6 lg:gap-8">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-tight">
+                Smile Better, <br class="hidden md:block"> Live Better. <br />
+                <span id="typing" class="text-[#5c7334]"></span> <br> with us! 
+            </h1>
+            
+            <p class="text-base md:text-lg text-slate-800 leading-relaxed font-medium max-w-xl">
+                Experience a brighter, more confident smile with our personalized dental care and state-of-the-art technology. From routine check-ups to advanced cosmetic treatments, we are dedicated to keeping your teeth healthy and your smile radiant.
+            </p>
 
-            <div class="flex flex-col">
-             <div class="carousel w-full h-[450px]">
-                    <div id="slide1" class="carousel-item relative w-full">
-                        <img
-                        src="https://smilecenterdentalclinic.com/wp-content/uploads/2025/02/image-1.png"
-                        class="w-full" />
-                        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide4" class="btn btn-circle">❮</a>
-                        <a href="#slide2" class="btn btn-circle">❯</a>
-                        </div>
+            <button class="btn sm:w-fit w-full px-8 py-4 h-auto bg-slate-900 border-none text-white rounded-full text-lg font-bold shadow-lg hover:bg-[#99B368] transition-all flex items-center justify-center gap-2 "> 
+                <svg class="fill-current w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19,4H18V3a1,1,0,0,0-2,0V4H8V3A1,1,0,0,0,6,3V4H5A3,3,0,0,0,2,7V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V10H20ZM20,8H4V7A1,1,0,0,1,5,6H19a1,1,0,0,1,1,1Z"/>
+                </svg>
+                Book an appointment now!
+            </button>
+        </div>
+
+        <div class="flex-1 w-full max-w-2xl">
+            <div class="carousel w-full h-[600px] aspect-[4/5] md:aspect-square lg:aspect-video rounded-3xl shadow-2xl overflow-hidden bg-slate-100">
+                <div id="slide1" class="carousel-item relative w-full">
+                    <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/557924091_1116457177271160_620713092561411649_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHYcAlzhF_V-Own1h22kZZBnC2kSGlwwsqcLaRIaXDCynKJrqcpMaaig9hm40RL2XEv77NfyaF0xrS9RjkLpvWY&_nc_ohc=bULoTkxfHBEQ7kNvwFGyunJ&_nc_oc=AdmvZ3iV4aHyRYhbJQFGGXFEkJI8Iax4MMLBzkWdLiYq5gnwDORfIITIXbMlAXRVjhE&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=0LUEIvzJ0jbiwlGvf-bNlA&_nc_ss=8&oh=00_Afwt9f3eOZgIh_-VhJlZZCqpEyKEmEImaEhEtyID3nrWmw&oe=69BDAA6C" class="w-full h-full object-cover" alt="Dental Care 1" />
+                    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide4" class="btn btn-circle bg-white/80 border-none text-black hover:bg-white">❮</a>
+                        <a href="#slide2" class="btn btn-circle bg-white/80 border-none text-black hover:bg-white">❯</a>
                     </div>
-                    <div id="slide2" class="carousel-item relative w-full">
-                        <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFHg4fV-5Tn4zr8Bw9XxVGJMU3LSNGWHhIUQ&s"
-                        class="w-full" />
-                        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide1" class="btn btn-circle">❮</a>
-                        <a href="#slide3" class="btn btn-circle">❯</a>
-                        </div>
+                </div>
+                <div id="slide2" class="carousel-item relative w-full">
+                    <img src="https://scontent.fcrk1-5.fna.fbcdn.net/v/t39.30808-6/558368257_1116457060604505_5494245572735791484_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFAJCBTFOArPqBYxdKuen2q8WCj_xvl-sXxYKP_G-X6xRL3Innk-emFB8bRa_3Gv5HAubgDQxvaFJpq9xc-F1WV&_nc_ohc=vqzvnAIejowQ7kNvwFR2qeI&_nc_oc=AdmiYUOTsqFhlM6hBO8pv10Vybo8rKPCSDW2h_FgA154esDThoK0XmKXGcgnO6sPll0&_nc_zt=23&_nc_ht=scontent.fcrk1-5.fna&_nc_gid=V_z9xqpSJC2qPd_0Jz2F5A&_nc_ss=8&oh=00_Afzy6fPqrcAJoMFXBrrPs_JL5tOXk1f2cfQMEECIhwtPEw&oe=69BD984B" class="w-full h-full object-cover" alt="Dental Care 2" />
+                    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide1" class="btn btn-circle bg-white/80 border-none text-black hover:bg-white">❮</a>
+                        <a href="#slide3" class="btn btn-circle bg-white/80 border-none text-black hover:bg-white">❯</a>
                     </div>
-                    <div id="slide3" class="carousel-item relative w-full">
-                        <img
-                        src="https://www.smilemore.ph/wp-content/uploads/2021/03/Ralph-Dr.-R.L..jpg"
-                        class="w-full" />
-                        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide2" class="btn btn-circle">❮</a>
-                        <a href="#slide4" class="btn btn-circle">❯</a>
-                        </div>
-                    </div>
-                    <div id="slide4" class="carousel-item relative w-full">
-                        <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfpcCyWdIf5nppFiBCIhYw1fi2UdsJCaOeuQ&s"
-                        class="w-full" />
-                        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide3" class="btn btn-circle">❮</a>
-                        <a href="#slide1" class="btn btn-circle">❯</a>
-                        </div>
+                </div>
+                <div id="slide3" class="carousel-item relative w-full">
+                    <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/557878161_1116457010604510_3891080754934828733_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHLSPcYWAyePMflpjUIQpN6XrNl4U-ks-5es2XhT6Sz7jV0y_LTfoOnkLzsIZGmUP7bfb6PYjO8rVgBqrIJPFT3&_nc_ohc=yXu8aFzvSy4Q7kNvwFWUeoN&_nc_oc=Adlwu7F0bPZdQY9Np-3qkA6_gknSvfaSKsPwYzNEo1pp5KpQRP3hINeIXjNH40RSEkM&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=8QE8j3wUk9z6Ic0E2rwMVA&_nc_ss=8&oh=00_AfzebUroskODeL5ebDTpFqFD1jmQWA82MSEabaUne2whBA&oe=69BD824A" class="w-full h-full object-cover" alt="Dental Care 3" />
+                    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a href="#slide2" class="btn btn-circle bg-white/80 border-none text-black hover:bg-white">❮</a>
+                        <a href="#slide1" class="btn btn-circle bg-white/80 border-none text-black hover:bg-white">❯</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+    
 
     <div class="avatar avatar-online fixed z-50 bottom-4 bottom-10 right-4">
         <div class="w-[60px] rounded-full">
-            <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" />
+            <img src="https://scontent.fcrk1-5.fna.fbcdn.net/v/t39.30808-6/516355701_1833239397234919_7032837163597153616_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeHUAkzH-o-wvFG3MwFcXKKKw50UQnURxbHDnRRCdRHFsc3198kHAGq6diIateTp-_ICfTaToELB5lO4mlitJNmY&_nc_ohc=v9jinJBRkUsQ7kNvwGfkIql&_nc_oc=AdlF97MHkIX_WPiBEV-cXViPzUrx3BlVg2v2tC5JDfsXuKfStI87U_ObS6BMB3Rr5qM&_nc_zt=23&_nc_ht=scontent.fcrk1-5.fna&_nc_gid=fz0FKMEXRSt6W8nXT6CtUg&_nc_ss=8&oh=00_AfxS2yP6n6lQOggRusHkzZTn-Xsypd3Q-gvOvDWTcmzn6g&oe=69BDB06C" />
         </div>
     </div>
+
+
+    <script>
+        var typed = new Typed('#typing', {
+        strings: ["SmileCheck", "Achieve your perfect smile"],
+        typeSpeed: 100,       
+        backSpeed: 50,        
+        backDelay: 1500,      
+        loop: true,     
+        showCursor: false       
+        });
+    </script>
 </body>
 </html>
