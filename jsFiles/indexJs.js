@@ -18,3 +18,12 @@ document.addEventListener('click', (e) => {
         dropdownMenu.classList.add('hidden'); // Hide the menu
     }
 });
+
+var typed = new Typed('#typing', {
+    strings: ["SmileCheck", "Achieve your perfect smile"],
+    typeSpeed: 100,       
+    backSpeed: 50,        
+    backDelay: 1500,      
+    loop: true,     
+    showCursor: false       
+});
