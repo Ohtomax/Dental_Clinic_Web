@@ -11,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="/jsFiles/accounts.js"></script>
+    <script src="/jsFiles/appointment.js"></script>
+    
 </head>
 <body class="">
     <header class="xl:mx-[150px] bg-white/30 backdrop-blur-md border border-white/20 p-8 fixed top-[20px] left-0 right-0 z-50 bg-[#FFFDF6] mx-[20px] py-[10px] px-[10px] rounded-[15px] shadow-lg font-bold mb-[20px] backdrop-blur-md shadow-lg">
@@ -28,7 +31,7 @@
                     <a href="#" class="hover:text-[#99B368]">Contact</a>
                 </div>
                 <div class="hidden md:flex">
-                    <button class="btn btn-wide bg-[#99B368] border-none text-white rounded-[50px] hover:text-[#99B368] hover:bg-[white] hover:border-[#99B368]">Book an appointment</button>
+                    <button onclick="document.getElementById('appointment_modal').showModal()" class="btn btn-wide bg-[#99B368] border-none text-white rounded-[50px] hover:text-[#99B368] hover:bg-[white] hover:border-[#99B368]">Book an appointment</button>
                 </div>
                 
                 <div class="relative md:hidden">
@@ -50,17 +53,17 @@
                             <a href="#" class="block px-4 py-2 text-gray-700 hover:text-[#99B368]">Home</a>
                             <a href="#" class="block px-4 py-2 text-gray-700 hover:text-[#99B368]">Services</a>
                             <a href="#" class="block px-4 py-2 text-gray-700 hover:text-[#99B368]">Contact</a>
-                            <a href="#" class="whitespace-nowrap mx-4 my-2 bg-[#99B368] block px-4 py-2 text-white rounded-[10px]">Book an appointment!</a>
+                            <a onclick="document.getElementById('appointment_modal').showModal()" href="#" class="whitespace-nowrap mx-4 my-2 bg-[#99B368] block px-4 py-2 text-white rounded-[10px]">Book an appointment!</a>
                             <hr class="my-1 border-gray-100">
                         </div>
                     </div>
                 </div>
                 
                 <button class="focus:outline-none">
-                    <div class="avatar">
-                    <div class="w-[35px] rounded-full">
-                        <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/631143758_1992330935048580_3398837793962298581_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE48XJoylJN6I4Ojd_z08zjfO_2TJbDMTR87_ZMlsMxNF2knDRRpCAxPf0QZpVX8O5z_699FcYXpjPGWDFQQOl3&_nc_ohc=O-9JrY5te7EQ7kNvwG4go3b&_nc_oc=AdksP3IbewNuVgUlJA4DbrHzDvxtXTjidexA0dix2R1UDknMeMfFXfl8hcBFga-XXeE&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=D1WwUoP4i06Syf4LIQlBYQ&_nc_ss=8&oh=00_AfxA6REHQLU4Uvr1-nfyF8ER4nBhSPk61CnTTfR5fbnVAg&oe=69BD67CC" />
-                    </div>
+                    <div onclick="document.getElementById('auth_modal').showModal()" class="avatar">
+                        <div class="w-[35px] rounded-full">
+                            <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/631143758_1992330935048580_3398837793962298581_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE48XJoylJN6I4Ojd_z08zjfO_2TJbDMTR87_ZMlsMxNF2knDRRpCAxPf0QZpVX8O5z_699FcYXpjPGWDFQQOl3&_nc_ohc=O-9JrY5te7EQ7kNvwG4go3b&_nc_oc=AdksP3IbewNuVgUlJA4DbrHzDvxtXTjidexA0dix2R1UDknMeMfFXfl8hcBFga-XXeE&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=D1WwUoP4i06Syf4LIQlBYQ&_nc_ss=8&oh=00_AfxA6REHQLU4Uvr1-nfyF8ER4nBhSPk61CnTTfR5fbnVAg&oe=69BD67CC" />
+                        </div>
                     </div>
                 </button>
             </div>
@@ -81,7 +84,7 @@
                 Experience a brighter, more confident smile with our personalized dental care and state-of-the-art technology. From routine check-ups to advanced cosmetic treatments, we are dedicated to keeping your teeth healthy and your smile radiant.
             </p>
 
-            <button class="btn sm:w-fit w-full px-8 py-4 h-auto bg-slate-900 border-none text-white rounded-full text-lg font-bold shadow-lg hover:bg-[#99B368] transition-all flex items-center justify-center gap-2 "> 
+            <button onclick="document.getElementById('appointment_modal').showModal()" class="btn sm:w-fit w-full px-8 py-4 h-auto bg-slate-900 border-none text-white rounded-full text-lg font-bold shadow-lg hover:bg-[#99B368] transition-all flex items-center justify-center gap-2 "> 
                 <svg class="fill-current w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19,4H18V3a1,1,0,0,0-2,0V4H8V3A1,1,0,0,0,6,3V4H5A3,3,0,0,0,2,7V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V10H20ZM20,8H4V7A1,1,0,0,1,5,6H19a1,1,0,0,1,1,1Z"/>
                 </svg>
@@ -125,7 +128,122 @@
         </div>
     </div>
 
+    <dialog id="appointment_modal" class="modal">
+        <div class="modal-box bg-[#FFFDF6]">
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            
+            <h3 onclick="document.getElementById('appointment_modal').showModal()" class="font-bold text-2xl text-slate-900 mb-2">Book an Appointment</h3>
+            <p class="text-slate-600 mb-6">Fill out the form below to schedule your visit with Smile Check.</p>
+            
+            <form class="flex flex-col gap-4" onsubmit="event.preventDefault(); alert('Appointment requested!'); document.getElementById('appointment_modal').close();">
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text font-semibold text-slate-700">Full Name</span></label>
+                    <input type="text" placeholder="John Doe" class="input input-bordered w-full bg-white" required />
+                </div>
+                
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text font-semibold text-slate-700">Email Address</span></label>
+                    <input type="email" placeholder="john@example.com" class="input input-bordered w-full bg-white" required />
+                </div>
 
+                <div class="flex gap-4">
+                    <div class="form-control w-1/2">
+                        <label class="label"><span class="label-text font-semibold text-slate-700">Preferred Date</span></label>
+                        <input type="date" class="input input-bordered w-full bg-white text-slate-700" required />
+                    </div>
+                    <div class="form-control w-1/2">
+                        <label class="label"><span class="label-text font-semibold text-slate-700">Preferred Time</span></label>
+                        <input type="time" class="input input-bordered w-full bg-white text-slate-700" required />
+                    </div>
+                </div>
 
+                <div class="modal-action mt-6">
+                    <button type="submit" class="btn w-full bg-[#99B368] border-none text-white hover:bg-slate-900 rounded-full text-lg">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+    <dialog id="auth_modal" class="modal">
+    <div class="modal-box bg-[#FFFDF6]">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        
+        <div id="login_section">
+            <h3 class="font-bold text-2xl text-slate-900 mb-2">Welcome Back!</h3>
+            <p class="text-slate-600 mb-6">Log in to manage your appointments and records.</p>
+            
+            <form class="flex flex-col gap-4">
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text font-semibold text-slate-700">Email Address</span></label>
+                    <input id="LogInEmailAddress" type="email" placeholder="john@example.com" class="input input-bordered w-full bg-white" required />
+                </div>
+                
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text font-semibold text-slate-700">Password</span></label>
+                    <input id="LogInPassword" type="password" placeholder="••••••••" class="input input-bordered w-full bg-white" required />
+                </div>
+
+                <div class="flex justify-end mt(-2)">
+                    <a href="#" class="text-sm text-[#99B368] hover:text-slate-900 hover:underline">Forgot password?</a>
+                </div>
+
+                <div class="modal-action mt-4">
+                    <button onclick="LogInClicked()" type="button" class="btn w-full bg-[#99B368] border-none text-white hover:bg-slate-900 rounded-full text-lg">Log In</button>
+                </div>
+            </form>
+
+            <p class="text-center mt-6 text-sm text-slate-600">
+                Don't have an account? 
+                <button type="button" onclick="document.getElementById('login_section').classList.add('hidden'); document.getElementById('signup_section').classList.remove('hidden');" class="text-[#99B368] font-bold hover:underline">Sign up</button>
+            </p>
+        </div>
+
+        <div id="signup_section" class="hidden">
+            <h3 class="font-bold text-2xl text-slate-900 mb-2">Create an Account</h3>
+            <p class="text-slate-600 mb-6">Join Smile Check for easier booking and updates.</p>
+            
+            <form class="flex flex-col gap-4">
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text font-semibold text-slate-700">Full Name</span></label>
+                    <input id="Username" type="text" placeholder="John Doe" class="input input-bordered w-full bg-white" required />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text font-semibold text-slate-700">Email Address</span></label>
+                    <input id="EmailAddress" type="email" placeholder="john@example.com" class="input input-bordered w-full bg-white" required />
+                </div>
+                
+                <div class="form-control w-full">
+                    <label class="label"><span class="label-text font-semibold text-slate-700">Password</span></label>
+                    <input id="Password" type="password" placeholder="••••••••" class="input input-bordered w-full bg-white" required />
+                </div>
+
+                <div class="modal-action mt-6">
+                    <button onclick="SignUpClicked()" type="button" class="btn w-full bg-slate-900 border-none text-white hover:bg-[#99B368] rounded-full text-lg">Sign Up</button>
+                </div>
+            </form>
+
+            <p class="text-center mt-6 text-sm text-slate-600">
+                Already have an account? 
+                <button type="button" onclick="document.getElementById('signup_section').classList.add('hidden'); document.getElementById('login_section').classList.remove('hidden');" class="text-[#99B368] font-bold hover:underline">Log in</button>
+            </p>
+        </div>
+    </div>
+    
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>
+
+<script>
+    console.log(listOfAccounts);
+</script>
 </body>
 </html>

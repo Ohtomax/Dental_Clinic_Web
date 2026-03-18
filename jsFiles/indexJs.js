@@ -19,6 +19,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
+//For the animation typing
 var typed = new Typed('#typing', {
     strings: ["SmileCheck", "Achieve your perfect smile"],
     typeSpeed: 100,       
@@ -27,3 +28,8 @@ var typed = new Typed('#typing', {
     loop: true,     
     showCursor: false       
 });
+
+
+
+
+
