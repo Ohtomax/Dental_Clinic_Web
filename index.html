@@ -60,7 +60,7 @@
                 </div>
                 
                 <button class="focus:outline-none">
-                    <div onclick="document.getElementById('auth_modal').showModal()" class="avatar">
+                    <div onclick="handleAvatarClick()" class="avatar">
                         <div class="w-[35px] rounded-full">
                             <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/631143758_1992330935048580_3398837793962298581_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE48XJoylJN6I4Ojd_z08zjfO_2TJbDMTR87_ZMlsMxNF2knDRRpCAxPf0QZpVX8O5z_699FcYXpjPGWDFQQOl3&_nc_ohc=O-9JrY5te7EQ7kNvwG4go3b&_nc_oc=AdksP3IbewNuVgUlJA4DbrHzDvxtXTjidexA0dix2R1UDknMeMfFXfl8hcBFga-XXeE&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=D1WwUoP4i06Syf4LIQlBYQ&_nc_ss=8&oh=00_AfxA6REHQLU4Uvr1-nfyF8ER4nBhSPk61CnTTfR5fbnVAg&oe=69BD67CC" />
                         </div>
@@ -237,6 +237,56 @@
         </div>
     </div>
     
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>
+
+<dialog id="Profile_modal" class="modal">
+    <div class="modal-box bg-[#FFFDF6] max-w-md">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+
+        <div class="flex flex-col items-center mb-6">
+            <div class="avatar mb-4">
+                <div class="w-24 rounded-full ring ring-[#99B368] ring-offset-base-100 ring-offset-2">
+                    <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/631143758_1992330935048580_3398837793962298581_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE48XJoylJN6I4Ojd_z08zjfO_2TJbDMTR87_ZMlsMxNF2knDRRpCAxPf0QZpVX8O5z_699FcYXpjPGWDFQQOl3&_nc_ohc=O-9JrY5te7EQ7kNvwG4go3b&_nc_oc=AdksP3IbewNuVgUlJA4DbrHzDvxtXTjidexA0dix2R1UDknMeMfFXfl8hcBFga-XXeE&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=D1WwUoP4i06Syf4LIQlBYQ&_nc_ss=8&oh=00_AfxA6REHQLU4Uvr1-nfyF8ER4nBhSPk61CnTTfR5fbnVAg&oe=69BD67CC" />
+                </div>
+            </div>
+            <h3 class="font-bold text-2xl text-slate-900">User Profile</h3>
+        </div>
+
+        <div class="space-y-4">
+            <div class="form-control">
+                <label class="label"><span class="label-text font-semibold text-slate-700">Username</span></label>
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-xl">
+                    <span id="displayUsername" class="text-slate-600">Loading...</span>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label class="label"><span class="label-text font-semibold text-slate-700">Email Address</span></label>
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-xl">
+                    <span id="displayEmail" class="text-slate-600">Loading...</span>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label class="label"><span class="label-text font-semibold text-slate-700">Password</span></label>
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-xl">
+                    <span class="text-slate-600">••••••••••••</span>
+                    <button class="text-sm text-[#99B368] font-bold hover:underline">Change</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-action flex flex-col gap-3 mt-8">
+            <button onclick="handleLogout()" class="btn w-full bg-red-500 border-none text-white hover:bg-red-600 rounded-full">
+                Log Out
+            </button>
+        </div>
+    </div>
     <form method="dialog" class="modal-backdrop">
         <button>close</button>
     </form>

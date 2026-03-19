@@ -6,6 +6,8 @@ let account = {
     role: ""
 };
 
+let CurrentAccountLoggedIn = JSON.parse(localStorage.getItem('CurrentAccountLoggedIn')) || null;
+
 let listOfAccounts = JSON.parse(localStorage.getItem('listOfAccounts')) || [];
 
 function signUpNewUSer(user, email, pass){
@@ -39,32 +41,49 @@ function signUpNewUSer(user, email, pass){
 
     localStorage.setItem('listOfAccounts', JSON.stringify(listOfAccounts));
 
-    document.getElementById("EmailAddress").value = "";
-    document.getElementById("Username").value = "";
-    document.getElementById("Password").value = "";
-
     alert("Account created successfully!");
+
+    const modal = document.getElementById("auth_modal");
+    if(modal){
+        modal.close();
+    }
 };
 
-function CheckAccounts(email, pass){
-    let findAccount = listOfAccounts.find(placeHolder =>
+
+function FindAccount(email, pass) {
+    let AccountFinding = listOfAccounts.find(placeHolder => 
         placeHolder.emailAddress === email && placeHolder.password === pass
     );
+    
+    if(AccountFinding){
+        CurrentAccountLoggedIn = {
+            username: AccountFinding.username,
+            email: AccountFinding.emailAddress
+        };
 
-    if(findAccount){
-        alert("Successfully logged In!");
+        localStorage.setItem('CurrentAccountLoggedIn', JSON.stringify(CurrentAccountLoggedIn));
+        alert(`Welcome back, ${CurrentAccountLoggedIn.username}!`);
+        return true;
     }
-    else{
-        alert("Failed to logged In!");
-    }
+    return false; 
 };
 
 function LogInClicked(){
     let email = document.getElementById("LogInEmailAddress").value;
     let pass = document.getElementById("LogInPassword").value;
 
-    CheckAccounts(email, pass);
-}
+    let isSuccess = FindAccount(email, pass);
+
+    if (isSuccess) {
+        const modal = document.getElementById("auth_modal");
+        if(modal){
+            modal.close();
+        }
+    } else {
+        alert("Failed to log in! Incorrect email or password.");
+    }
+    
+};
 
 function SignUpClicked(){
     let user = document.getElementById("Username").value;
@@ -72,4 +91,32 @@ function SignUpClicked(){
     let pass = document.getElementById("Password").value;
 
     signUpNewUSer(user, email, pass);
+
+    document.getElementById("EmailAddress").value = "";
+    document.getElementById("Username").value = "";
+    document.getElementById("Password").value = "";
+}; 
+
+
+function CheckedCurrentAccount(){
+    if(CurrentAccountLoggedIn){
+        
+    }
+};
+
+
+// Needs to be fixed later especially the Safety Check
+function handleAvatarClick(){
+
+    const currentUser = JSON.parse(localStorage.getItem("CurrentAccountLoggedIn"));
+
+    if(currentUser){
+        document.getElementById("Profile_modal").showModal();
+        document.getElementById('displayUsername').textContent = currentUser.username;
+    }
+    else{
+        document.getElementById("auth_modal").showModal();
+    }
 }
+
+
