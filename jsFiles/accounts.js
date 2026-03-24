@@ -82,7 +82,6 @@ function LogInClicked(){
     } else {
         alert("Failed to log in! Incorrect email or password.");
     }
-    
 };
 
 function SignUpClicked(){
@@ -97,12 +96,6 @@ function SignUpClicked(){
     document.getElementById("Password").value = "";
 }; 
 
-
-function CheckedCurrentAccount(){
-    if(CurrentAccountLoggedIn){
-        
-    }
-};
 
 
 // Needs to be fixed later especially the Safety Check
