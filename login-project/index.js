@@ -1,94 +1,64 @@
 const express = require('express');
-const { Pool } = require('pg');
-const bcrypt = require('bcrypt');
-require('dotenv').config();
+const cors = require('cors');
+const admin = require('firebase-admin');
+
+const serviceAccount = require('./dentalclinicproject-50c18-firebase-adminsdk-fbsvc-14abf22bd8.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount) // ✅ fix 1
+});
+
+const interactWithDb = admin.firestore();
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
-const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-});
-
-// Test connection
-pool.connect((err, client, release) => {
-  if (err) {
-    console.error('Database connection FAILED:', err.message);
-  } else {
-    console.log('Database connected successfully!');
-    release();
-  }
-});
-
-// ─── REGISTER ───────────────────────────────────────────
-app.post('/register', async (req, res) => {
-  const { name, email, password } = req.body;
-
+app.post('/api/auth/register', async (req, res) => {
   try {
-    // Check if email already exists
-    const existing = await pool.query(
-      'SELECT * FROM users WHERE email = $1', [email]
-    );
-    if (existing.rows.length > 0) {
-      return res.status(400).json({ message: 'Email already registered' });
-    }
+    const { name, email, pass } = req.body;
 
-    // Hash the password (never store plain text!)
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Save user to database
-    const result = await pool.query(
-      'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email',
-      [name, email, hashedPassword]
-    );
-
-    res.status(201).json({
-      message: 'Account created successfully!',
-      user: result.rows[0]
+    const userRecord = await admin.auth().createUser({
+      email: email,        // ✅ fix 2
+      password: pass,
+      displayName: name
     });
 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// ─── LOGIN ───────────────────────────────────────────────
-app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    // Find user by email
-    const result = await pool.query(
-      'SELECT * FROM users WHERE email = $1', [email]
-    );
-    if (result.rows.length === 0) {
-      return res.status(400).json({ message: 'Invalid email or password' });
-    }
-
-    const user = result.rows[0];
-
-    // Compare password with hashed version
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid email or password' });
-    }
-
-    res.json({
-      message: 'Login successful!',
-      user: { id: user.id, name: user.name, email: user.email }
+    await interactWithDb.collection('users').doc(userRecord.uid).set({
+      name: name,
+      email: email,
+      createdAt: admin.firestore.FieldValue.serverTimestamp() // ✅ fix 3
     });
 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(201).send({ message: 'Successfully Registered!', uid: userRecord.uid });
+  } catch (error) {
+    res.status(500).send({ error: error.message });
   }
 });
 
-app.listen(3000, () => {
-  console.log('Server running at http://localhost:3000');
+const verifyToken = async (req, res, next) => {
+  const token = req.headers.authorization?.split(' ')[1];
+
+  if (!token) return res.status(401).send({ error: 'No token provided' });
+
+  try {
+    const decoded = await admin.auth().verifyIdToken(token);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(401).send({ error: 'Invalid or expired token' });
+  }
+};
+
+app.get('/api/profile', verifyToken, async (req, res) => {
+  try {
+    const userDoc = await interactWithDb.collection('users').doc(req.user.uid).get(); // ✅ fix 4
+    res.send(userDoc.data());
+  } catch (error) {
+    console.log('FULL ERROR:', error);
+    res.status(500).send({ error: error.message });
+  }
 });
+
+app.listen(3000, () => console.log('Server running on port 3000'));
